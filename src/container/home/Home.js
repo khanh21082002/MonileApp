@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { Image, ScrollView, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native";
 import Header from "../../component/Header";
 import colors from "../../theme/color";
@@ -9,7 +9,6 @@ import Footer from "../../component/Footer";
 
 const Home = () => {
     const localImage = require('AwesomeProject/image/class.png');
-
 
     return (
         <SafeAreaView style={styles.container}>
@@ -21,6 +20,8 @@ const Home = () => {
                     iconName="bell"
                 />
             </View>
+
+            
 
             <ScrollView style={{ backgroundColor: '#D9D9D9' }}>
                 <MainHome
@@ -204,9 +205,9 @@ const styles = StyleSheet.create({
         width: 100,
         height: 100
     },
-    footer:{
+    footer: {
         backgroundColor: colors.primary.colorbutton
-        
+
     }
 
 
