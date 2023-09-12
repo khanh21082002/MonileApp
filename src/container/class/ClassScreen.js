@@ -4,25 +4,28 @@ import Header from "../../component/Header";
 import colors from "../../theme/color";
 import fonts from "../../theme/fonts";
 import Footer from "../../component/Footer";
-import TableMeal from "../../component/Table";
+import TableClass from "../../component/TableClass";
 
-export default MealScreen = () => {
+export default ClassScreen = ({ route }) => {
+    
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
                 <Header
                     textStyle={styles.text}
-                    text1="Bữa ăn"
+                    text1="Lớp học"
                     text2="Thông báo"
-                    note="(Thứ 2)"
+                    note="(lớp Mầm)"
                     iconName="bell"
                 />
             </View>
             <ScrollView style={styles.main}>
                 <View>
-                    <Text style={styles.textMain}>Bữa ăn của các con</Text>
+                    <Text style={styles.textMain}>Danh sách học sinh lớp Mầm</Text>
                 </View>
-                <TableMeal/>
+                <TableClass
+                    classroom="0"
+                />
             </ScrollView>
 
             <View style={styles.footer}>
@@ -34,9 +37,6 @@ export default MealScreen = () => {
                     iconName1="calendar-alt"
                     iconName2="home"
                     iconName3="user"
-                    link1="TimeTable"
-                    link2="Home"
-                    link3="Account"
                 />
             </View>
         </SafeAreaView>
@@ -73,4 +73,5 @@ const styles = StyleSheet.create({
     },
     
 });
+
 

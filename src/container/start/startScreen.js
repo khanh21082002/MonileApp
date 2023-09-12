@@ -1,9 +1,12 @@
 import React from 'react';
 import colors from '../../theme/color';
-import { Image, StyleSheet, Text, View, TouchableOpacity, Alert, SafeAreaView } from 'react-native'
+import { Image, StyleSheet, Text, View, TouchableOpacity, Alert, SafeAreaView } from 'react-native';
 
-const startScreen = () => {
+
+
+export default StartScreen = ({navigation}) => {
     return (
+        
         <SafeAreaView style={styles.container}>
             <View>
                 <View style={styles.fixToImg}>
@@ -27,7 +30,8 @@ const startScreen = () => {
 
                     <TouchableOpacity
                         style={styles.button}
-                        onPress={() => Alert.alert('pass')}
+                        
+                        onPress={() => navigation.navigate("Login")}
                     >
                         <Text style={styles.buttonText}>GetStart!!</Text>
                     </TouchableOpacity>
@@ -83,4 +87,5 @@ const styles = StyleSheet.create({
 
 });
 
-export default startScreen
+
+

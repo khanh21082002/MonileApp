@@ -4,25 +4,24 @@ import Header from "../../component/Header";
 import colors from "../../theme/color";
 import fonts from "../../theme/fonts";
 import Footer from "../../component/Footer";
-import TableMeal from "../../component/Table";
+import TimeTable from "../../component/TimeTable";
 
-export default MealScreen = () => {
+export default TimeTableScreen = () => {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
                 <Header
                     textStyle={styles.text}
-                    text1="Bữa ăn"
-                    text2="Thông báo"
-                    note="(Thứ 2)"
-                    iconName="bell"
+                    text1="Thời khóa biểu"
+                    text2="Lịch"                    
+                    iconName="calendar-alt"
                 />
             </View>
             <ScrollView style={styles.main}>
                 <View>
-                    <Text style={styles.textMain}>Bữa ăn của các con</Text>
+                    <Text style={styles.textMain}></Text>
                 </View>
-                <TableMeal/>
+                <TimeTable/>
             </ScrollView>
 
             <View style={styles.footer}>
@@ -57,6 +56,7 @@ const styles = StyleSheet.create({
         fontFamily: fonts.primary.primary,
         fontWeight: "bold",
         fontSize: 16,
+        
     },
 
     textMain: {

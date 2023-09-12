@@ -6,7 +6,7 @@ import colors from "../../theme/color";
 import fonts from "../../theme/fonts";
 import Footer from "../../component/Footer";
 
-const AccountScreen = () => {
+export default AccountScreen = ({navigation}) => {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
@@ -27,7 +27,7 @@ const AccountScreen = () => {
                 </View>
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => Alert.alert('pass')}
+                    onPress={() => navigation.navigate('Login')}
                 >
                     <Text style={styles.buttonText}>Đăng Xuất</Text>
                 </TouchableOpacity>
@@ -42,6 +42,8 @@ const AccountScreen = () => {
                     iconName1="calendar-alt"
                     iconName2="home"
                     iconName3="user"
+                    link2="Home"
+                    link3="Account"
                 />
             </View>
         </SafeAreaView>
@@ -105,4 +107,3 @@ const styles = StyleSheet.create({
 
 });
 
-export default AccountScreen

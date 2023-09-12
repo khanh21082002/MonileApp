@@ -8,13 +8,18 @@ function HeaderText({ text, style }) {
 }
 
 function Header(props) {
-    const { text1 = '', text2 = '', textStyle, iconName } = props;
+    const { text1 = '', text2 = '', textStyle, iconName, note = '' } = props;
     return (
         <View style={[{ flexDirection: 'row', justifyContent: 'space-between', margin: 20 }]}>
-            <HeaderText text={text1} style={textStyle} />
+
+            <View style={[{ flexDirection: 'column', alignItems: 'center', margin: 2 }]}>
+                <HeaderText text={text1} style={textStyle} />
+                <HeaderText text={note} style={textStyle} />
+            </View>
+
             <View style={[{ flexDirection: 'row', justifyContent: 'space-between', margin: 2 }]}>
                 <HeaderText text={text2} style={textStyle} />
-                <Icon name={iconName} size={25} color="white"  />
+                <Icon name={iconName} size={25} color="white" style={{ marginLeft: 10 }} />
             </View>
 
         </View>

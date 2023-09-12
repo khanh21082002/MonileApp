@@ -7,7 +7,7 @@ import fonts from "../../theme/fonts";
 import MainHome from "../../component/MainHome";
 import Footer from "../../component/Footer";
 
-const Home = () => {
+export default Home = () => {
     const localImage = require('AwesomeProject/image/class.png');
 
     return (
@@ -21,7 +21,7 @@ const Home = () => {
                 />
             </View>
 
-            
+
 
             <ScrollView style={{ backgroundColor: '#D9D9D9' }}>
                 <MainHome
@@ -33,6 +33,7 @@ const Home = () => {
                             textList: "Lớp Mầm",
                             styleList: styles.textList,
                             styleImg: styles.styleImg,
+                            link : "Class"
                         },
                         {
                             image: localImage,
@@ -66,6 +67,7 @@ const Home = () => {
                             textList: "Thứ 2",
                             styleList: styles.textList,
                             styleImg: styles.styleImg,
+                            link: "Meal"
                         },
                         {
                             image: localImage,
@@ -103,6 +105,7 @@ const Home = () => {
                             textList: "Lớp Mầm",
                             styleList: styles.textList,
                             styleImg: styles.styleImg,
+                            link:"Notification"
                         },
                         {
                             image: localImage,
@@ -166,6 +169,9 @@ const Home = () => {
                     iconName1="calendar-alt"
                     iconName2="home"
                     iconName3="user"
+                    link1="TimeTable"
+                    link2="Home"
+                    link3="Account"
                 />
             </View>
         </SafeAreaView>
@@ -213,4 +219,3 @@ const styles = StyleSheet.create({
 
 });
 
-export default Home

@@ -4,12 +4,14 @@ import { Image, StyleSheet, Text, View, TouchableOpacity, Alert, SafeAreaView, T
 import CustomTextInput from "../../component/CustomTextInput";
 
 
-const LoginScreen = () => {
+
+export default LoginScreen = ({navigation}) => {
     // const [text, onChangeText] = React.useState('');
 
     const onChangeText = () => {
         // alert(te)
     }
+
     return (
         <SafeAreaView style={styles.container}>
             <View>
@@ -57,9 +59,10 @@ const LoginScreen = () => {
 
                     <TouchableOpacity
                         style={styles.button}
-                        onPress={() => Alert.alert('pass')}
+                        onPress={() => navigation.navigate('Home')}
                     >
-                        <Text style={styles.buttonText}>Đăng Nhập</Text>
+                        <Text style={styles.buttonText} >Đăng Nhập</Text>
+                        
                     </TouchableOpacity>
                     <Image
                         source={require('AwesomeProject/image/undraw_true_friends_c94g.png')}
@@ -141,5 +144,3 @@ const styles = StyleSheet.create({
     }
 
 });
-
-export default LoginScreen
