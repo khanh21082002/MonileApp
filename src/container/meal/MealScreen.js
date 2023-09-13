@@ -1,12 +1,17 @@
-import React from "react";
+import React ,{useState, useEffect}from "react";
 import { StyleSheet, View, Text, SafeAreaView, ScrollView } from "react-native";
 import Header from "../../component/Header";
 import colors from "../../theme/color";
 import fonts from "../../theme/fonts";
-import Footer from "../../component/Footer";
-import TableMeal from "../../component/Table";
+import TableMeal from "../../component/TableMeal";
 
-export default MealScreen = () => {
+export default MealScreen = ({route}) => {
+    const {title} = route.params
+    const [note, setNoteText] = useState(title);
+    useEffect(()=>{
+        setNoteText(title);
+    }, [title])
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
@@ -14,7 +19,7 @@ export default MealScreen = () => {
                     textStyle={styles.text}
                     text1="Bữa ăn"
                     text2="Thông báo"
-                    note="(Thứ 2)"
+                    note={note}
                     iconName="bell"
                 />
             </View>
@@ -22,11 +27,13 @@ export default MealScreen = () => {
                 <View>
                     <Text style={styles.textMain}>Bữa ăn của các con</Text>
                 </View>
-                <TableMeal/>
+                <TableMeal 
+                    day={note}
+                />
             </ScrollView>
 
             <View style={styles.footer}>
-                <Footer
+                {/* <Footer
                     textStyle={styles.text}
                     text1="Thời khóa biểu"
                     text2="Trang chủ"
@@ -37,7 +44,7 @@ export default MealScreen = () => {
                     link1="TimeTable"
                     link2="Home"
                     link3="Account"
-                />
+                /> */}
             </View>
         </SafeAreaView>
     );

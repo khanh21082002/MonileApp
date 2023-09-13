@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native";
 import Header from "../../component/Header";
 import colors from "../../theme/color";
 import fonts from "../../theme/fonts";
-import Footer from "../../component/Footer";
+
 
 export default AccountScreen = ({navigation}) => {
     return (
@@ -34,7 +34,7 @@ export default AccountScreen = ({navigation}) => {
             </View>
 
             <View style={styles.footer}>
-                <Footer
+                {/* <Footer
                     textStyle={styles.text}
                     text1="Thời khóa biểu"
                     text2="Trang chủ"
@@ -42,9 +42,10 @@ export default AccountScreen = ({navigation}) => {
                     iconName1="calendar-alt"
                     iconName2="home"
                     iconName3="user"
+                    link1="TimeTable"
                     link2="Home"
                     link3="Account"
-                />
+                /> */}
             </View>
         </SafeAreaView>
     );

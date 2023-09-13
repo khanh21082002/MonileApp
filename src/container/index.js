@@ -5,35 +5,72 @@ import startScreen from "./start/StartScreen";
 import LoginScreen from "./login/LoginScreen";
 import Home from "./home/Home";
 import MealScreen from "./meal/MealScreen";
-import ClassScreen from "./class/ClassScreen";
 import NotificationScreen from "./notification/NotificationScreen";
 import AccountScreen from "./account/AccountScreen";
 import TimeTableScreen from "./timetable/TimeTable";
-
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ClassScreen from "./class/ClassScreen";
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
-
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import colors from "../theme/color";
+const Tab = createBottomTabNavigator();
 
 const Stack = createNativeStackNavigator();
-export default RootComponent = function () {
-    return (
 
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName="Start" screenOptions={{ headerShown: false }}>
-                <Stack.Screen name="Start" component={StartScreen} />
-                <Stack.Screen name="Login" component={LoginScreen} />
-                <Stack.Screen name="Home" component={Home}/>
-                <Stack.Screen name="Account" component={AccountScreen}/>
-                <Stack.Screen name="Notification" component={NotificationScreen}/>
-                <Stack.Screen name="Class" component={ClassScreen}/>
-                <Stack.Screen name="Meal" component={MealScreen}/>
-                <Stack.Screen name="TimeTable" component={TimeTableScreen}/>
-            </Stack.Navigator>
-        </NavigationContainer>
-        // <StartScreen/>
-        // <LoginScreen/>
-        // <Home/>
-        
-    )
-}
+const TabNavigator = () => (
+    <Tab.Navigator
+        screenOptions={{ headerShown: false }}
+        tabBarOptions={{
+            labelStyle: { fontSize: 15 },
+            style: {
+                backgroundColor: 'red',
+            },
+            activeTintColor: colors.primary.colorbutton,
+            inactiveTintColor: 'black',
+        }}>
+
+        <Tab.Screen name="Home" component={Home}
+
+            options={{
+                tabBarLabel: 'Home',
+                tabBarIcon: () => (
+                    <Icon name="home" color={'White'} size={25} />
+                ),
+            }} />
+        <Tab.Screen
+            name="TimeTable" component={TimeTableScreen}
+            options={{
+                tabBarLabel: 'TimeTable',
+                tabBarIcon: () => (
+                    <Icon name="calendar-alt" color={'White'} size={25} />
+                ),
+            }} />
+        <Tab.Screen name="Account" component={AccountScreen}
+            options={{
+                tabBarLabel: 'Account',
+                tabBarIcon: () => (
+                    <Icon name="user" color={'White'} size={25} />
+                ),
+            }}
+        />
+    </Tab.Navigator>
+);
+
+const RootComponent = () => (
+    <NavigationContainer>
+        <Stack.Navigator initialRouteName="Start" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Start" component={StartScreen} />
+            <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen name="Home" component={TabNavigator} />
+            <Stack.Screen name="Account" component={AccountScreen} />
+            <Stack.Screen name="Notification" component={NotificationScreen} />
+            <Stack.Screen name="Class" component={ClassScreen} />
+            <Stack.Screen name="Meal" component={MealScreen} />
+            <Stack.Screen name="TimeTable" component={TimeTableScreen} />
+        </Stack.Navigator>
+    </NavigationContainer>
+);
+
+export default RootComponent;

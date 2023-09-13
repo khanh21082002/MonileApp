@@ -5,7 +5,7 @@ import Header from "../../component/Header";
 import colors from "../../theme/color";
 import fonts from "../../theme/fonts";
 import MainHome from "../../component/MainHome";
-import Footer from "../../component/Footer";
+
 
 export default Home = () => {
     const localImage = require('AwesomeProject/image/class.png');
@@ -18,6 +18,7 @@ export default Home = () => {
                     text1="Trang chủ"
                     text2="Thông báo"
                     iconName="bell"
+                    
                 />
             </View>
 
@@ -40,18 +41,21 @@ export default Home = () => {
                             textList: "Lớp Chồi",
                             styleList: styles.textList,
                             styleImg: styles.styleImg,
+                            link : "Class"
                         },
                         {
                             image: localImage,
                             textList: "Lớp Lá",
                             styleList: styles.textList,
                             styleImg: styles.styleImg,
+                            link : "Class"
                         },
                         {
                             image: localImage,
                             textList: "Lớp 5 tuổi",
                             styleList: styles.textList,
                             styleImg: styles.styleImg,
+                            link : "Class"
                         },
 
                     ]}
@@ -74,24 +78,28 @@ export default Home = () => {
                             textList: "Thứ 3",
                             styleList: styles.textList,
                             styleImg: styles.styleImg,
+                            link: "Meal"
                         },
                         {
                             image: localImage,
                             textList: "Thứ 4",
                             styleList: styles.textList,
                             styleImg: styles.styleImg,
+                            link: "Meal"
                         },
                         {
                             image: localImage,
                             textList: "Thứ 5",
                             styleList: styles.textList,
                             styleImg: styles.styleImg,
+                            link: "Meal"
                         },
                         {
                             image: localImage,
                             textList: "Thứ 6",
                             styleList: styles.textList,
                             styleImg: styles.styleImg,
+                            link: "Meal"
                         },
 
                     ]}
@@ -161,7 +169,7 @@ export default Home = () => {
                 />
             </ScrollView>
             <View style={styles.header}>
-                <Footer
+                {/* <Footer
                     textStyle={styles.text}
                     text1="Thời khóa biểu"
                     text2="Trang chủ"
@@ -172,7 +180,7 @@ export default Home = () => {
                     link1="TimeTable"
                     link2="Home"
                     link3="Account"
-                />
+                /> */}
             </View>
         </SafeAreaView>
 

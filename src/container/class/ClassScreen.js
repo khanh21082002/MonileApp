@@ -1,13 +1,32 @@
-import React from "react";
-import { StyleSheet, View, Text, SafeAreaView, ScrollView } from "react-native";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, View, Text, SafeAreaView, ScrollView, Alert } from "react-native";
 import Header from "../../component/Header";
 import colors from "../../theme/color";
 import fonts from "../../theme/fonts";
-import Footer from "../../component/Footer";
+
 import TableClass from "../../component/TableClass";
+
+const data = [
+    {
+        title: 'Lớp mầm',       
+    },
+    {
+        title: 'Lớp chồi',        
+    },
+    {
+        title: 'Lớp lá',    
+    }
+]
+
 
 export default ClassScreen = ({ route }) => {
     
+    const {title} = route.params
+    
+    const [note, setNoteText] = useState(title);
+    useEffect(()=>{
+        setNoteText(title);
+    }, [title])
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
@@ -15,21 +34,21 @@ export default ClassScreen = ({ route }) => {
                     textStyle={styles.text}
                     text1="Lớp học"
                     text2="Thông báo"
-                    note="(lớp Mầm)"
+                    note={note}
                     iconName="bell"
                 />
             </View>
             <ScrollView style={styles.main}>
                 <View>
-                    <Text style={styles.textMain}>Danh sách học sinh lớp Mầm</Text>
+                    <Text style={styles.textMain}>Danh sách học sinh {note}</Text>
                 </View>
                 <TableClass
-                    classroom="0"
+                    classroom={note}
                 />
             </ScrollView>
 
             <View style={styles.footer}>
-                <Footer
+                {/* <Footer
                     textStyle={styles.text}
                     text1="Thời khóa biểu"
                     text2="Trang chủ"
@@ -37,7 +56,10 @@ export default ClassScreen = ({ route }) => {
                     iconName1="calendar-alt"
                     iconName2="home"
                     iconName3="user"
-                />
+                    link1="TimeTable"
+                    link2="Home"
+                    link3="Account"
+                /> */}
             </View>
         </SafeAreaView>
     );

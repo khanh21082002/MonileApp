@@ -3,7 +3,6 @@ import { StyleSheet, View, Text, SafeAreaView, ScrollView } from "react-native";
 import Header from "../../component/Header";
 import colors from "../../theme/color";
 import fonts from "../../theme/fonts";
-import Footer from "../../component/Footer";
 import TimeTable from "../../component/TimeTable";
 
 export default TimeTableScreen = () => {
@@ -15,17 +14,20 @@ export default TimeTableScreen = () => {
                     text1="Thời khóa biểu"
                     text2="Lịch"                    
                     iconName="calendar-alt"
+                    iconBack="chevron-left"
                 />
             </View>
             <ScrollView style={styles.main}>
                 <View>
                     <Text style={styles.textMain}></Text>
                 </View>
-                <TimeTable/>
+                <TimeTable 
+                    timeDay="Thứ 2"
+                />
             </ScrollView>
 
             <View style={styles.footer}>
-                <Footer
+                {/* <Footer
                     textStyle={styles.text}
                     text1="Thời khóa biểu"
                     text2="Trang chủ"
@@ -36,7 +38,7 @@ export default TimeTableScreen = () => {
                     link1="TimeTable"
                     link2="Home"
                     link3="Account"
-                />
+                /> */}
             </View>
         </SafeAreaView>
     );

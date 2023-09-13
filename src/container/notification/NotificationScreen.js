@@ -3,7 +3,6 @@ import { StyleSheet, View, Text, SafeAreaView, ScrollView } from "react-native";
 import Header from "../../component/Header";
 import colors from "../../theme/color";
 import fonts from "../../theme/fonts";
-import Footer from "../../component/Footer";
 
 
 export default NotificationScreen = () => {
@@ -22,7 +21,7 @@ export default NotificationScreen = () => {
             </ScrollView>
 
             <View style={styles.footer}>
-                <Footer
+                {/* <Footer
                     textStyle={styles.text}
                     text1="Thời khóa biểu"
                     text2="Trang chủ"
@@ -30,7 +29,10 @@ export default NotificationScreen = () => {
                     iconName1="calendar-alt"
                     iconName2="home"
                     iconName3="user"
-                />
+                    link1="TimeTable"
+                    link2="Home"
+                    link3="Account"
+                /> */}
             </View>
         </SafeAreaView>
     );
