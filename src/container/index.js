@@ -7,11 +7,14 @@ import Home from "./home/Home";
 import MealScreen from "./meal/MealScreen";
 import NotificationScreen from "./notification/NotificationScreen";
 import AccountScreen from "./account/AccountScreen";
-import TimeTableScreen from "./timetable/TimeTable";
+import TimeTableScreen from "./timetable/TimeTableScreen";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ClassScreen from "./class/ClassScreen";
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import { Provider } from "react-redux";
+import { store } from "../redux/store";
+
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import colors from "../theme/color";
@@ -59,18 +62,20 @@ const TabNavigator = () => (
 );
 
 const RootComponent = () => (
-    <NavigationContainer>
-        <Stack.Navigator initialRouteName="Start" screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="Start" component={StartScreen} />
-            <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Home" component={TabNavigator} />
-            <Stack.Screen name="Account" component={AccountScreen} />
-            <Stack.Screen name="Notification" component={NotificationScreen} />
-            <Stack.Screen name="Class" component={ClassScreen} />
-            <Stack.Screen name="Meal" component={MealScreen} />
-            <Stack.Screen name="TimeTable" component={TimeTableScreen} />
-        </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="Start" screenOptions={{ headerShown: false }}>
+                <Stack.Screen name="Start" component={StartScreen} />
+                <Stack.Screen name="Login" component={LoginScreen} />
+                <Stack.Screen name="Home" component={TabNavigator} />
+                <Stack.Screen name="Account" component={AccountScreen} />
+                <Stack.Screen name="Notification" component={NotificationScreen} />
+                <Stack.Screen name="Class" component={ClassScreen} />
+                <Stack.Screen name="Meal" component={MealScreen} />
+                <Stack.Screen name="TimeTable" component={TimeTableScreen} />
+            </Stack.Navigator>
+        </NavigationContainer>
+    </Provider>
 );
 
 export default RootComponent;

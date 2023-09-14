@@ -1,14 +1,26 @@
-import React from "react";
-import { Image, ScrollView, StyleSheet, View } from "react-native";
+import React, { useEffect , useState } from "react";
+import { Image, ScrollView, StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native";
 import Header from "../../component/Header";
 import colors from "../../theme/color";
 import fonts from "../../theme/fonts";
 import MainHome from "../../component/MainHome";
 
+import {useDispatch, useSelector} from 'react-redux'
+import { updateUser } from "../../redux/actions/updateAction";
+
 
 export default Home = () => {
     const localImage = require('AwesomeProject/image/class.png');
+
+    
+    const info = useSelector((state) => state.personalInfor)
+    const [text,onchangeText] = React.useState("");
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        console.log("Info: ",info)
+    })
 
     return (
         <SafeAreaView style={styles.container}>
@@ -168,19 +180,25 @@ export default Home = () => {
                     ]}
                 />
             </ScrollView>
+
+            {/* test */}
             <View style={styles.header}>
-                {/* <Footer
-                    textStyle={styles.text}
-                    text1="Thời khóa biểu"
-                    text2="Trang chủ"
-                    text3="Tài khoản"
-                    iconName1="calendar-alt"
-                    iconName2="home"
-                    iconName3="user"
-                    link1="TimeTable"
-                    link2="Home"
-                    link3="Account"
-                /> */}
+                <Text>User: {info.user}</Text>
+                <Text>Password: {info.password}</Text>
+                <Text>Address: {info.address}</Text>
+                <Text>ID: {info.id}</Text>
+                    <TextInput 
+                        style={{height:40 , width:100 , borderWidth:1}}
+                        onChangeText={onchangeText}
+                        value={text}
+                    />
+
+                    <TouchableOpacity 
+                        onPress={() => dispatch(updateUser(text))}
+                    >
+                        <Text>Submit</Text>
+                    </TouchableOpacity>
+
             </View>
         </SafeAreaView>
 

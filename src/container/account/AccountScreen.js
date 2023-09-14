@@ -4,9 +4,12 @@ import { SafeAreaView } from "react-native";
 import Header from "../../component/Header";
 import colors from "../../theme/color";
 import fonts from "../../theme/fonts";
+import { useSelector } from "react-redux";
 
 
 export default AccountScreen = ({navigation}) => {
+    const info = useSelector((state) => state.personalInfor)
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
@@ -20,9 +23,9 @@ export default AccountScreen = ({navigation}) => {
             <View style={styles.main}>
                 <Image source={require("AwesomeProject/image/avatar.jpg")} style={styles.image} />
                 <View >
-                    <Text style={styles.textLine}>Tên đăng nhập: </Text>
-                    <Text style={styles.textLine}>Địa chỉ: </Text>
-                    <Text style={styles.textLine}>Phụ huynh của: </Text>
+                    <Text style={styles.textLine}>Tên đăng nhập:{info.user} </Text>
+                    <Text style={styles.textLine}>Địa chỉ:{info.address} </Text>
+                    <Text style={styles.textLine}>Phụ huynh của: {info.student} </Text>
 
                 </View>
                 <TouchableOpacity

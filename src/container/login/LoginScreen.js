@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import colors from '../../theme/color';
 import { Image, StyleSheet, Text, View, TouchableOpacity, Alert, SafeAreaView, TextInput } from 'react-native'
 import CustomTextInput from "../../component/CustomTextInput";
@@ -8,9 +8,8 @@ import CustomTextInput from "../../component/CustomTextInput";
 export default LoginScreen = ({navigation}) => {
     // const [text, onChangeText] = React.useState('');
 
-    const onChangeText = () => {
-        // alert(te)
-    }
+    const [text, onChangeText] = React.useState('');
+    const [pass, onChangePass] = React.useState('');
 
     return (
         <SafeAreaView style={styles.container}>
@@ -28,33 +27,25 @@ export default LoginScreen = ({navigation}) => {
                 <View style={styles.container}>
                     <Image source={require('AwesomeProject/image/undraw_Login_re_4vu2.png')}
                         style={styles.image}
-                    />
-
-                    {/* <View style={styles.input} >
-                    <Icon name="user" size={30} color='black' marginLeft={20}/>
-                        <TextInput
-                            style={styles.inputText}
-                            onChangeText={onChangeText}
-                             
-                            placeholder={"Tên đăng nhập"}
-                        />
-                    </View> */}
+                    />                    
 
                     <CustomTextInput
-                        containerStyle={styles.input}
+                        containerStyle={styles.containerStyle}
+                        style={styles.input}
                         iconName="user"
-                        value=""
+                        value={text}
                         onChangeText={onChangeText}
                         placeholder="Tên đăng nhâp"
                     />
 
                     <CustomTextInput
-                        containerStyle={styles.input}
+                        containerStyle={styles.containerStyle}
+                        style={styles.input}
                         iconName="key"
-                        value=""
-                        onChangeText={onChangeText}
-                        placeholder="Tên đăng nhâp"
-                        iconName1="eye"
+                        value={pass}
+                        onChangeText={onChangePass}
+                        placeholder="Mật khẩu"
+                        isPassword={true}                      
                     />
 
                     <TouchableOpacity
@@ -118,7 +109,7 @@ const styles = StyleSheet.create({
         padding: 0,
     },
 
-    input: {
+    containerStyle: {
         borderWidth: 2,
         borderColor: 'black',
         width: 400,
@@ -128,6 +119,17 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 30,
         borderRadius: 30
+    },
+
+    input: {
+               
+        width: 250,
+        height: 40,
+        backgroundColor: colors.primary.background,
+        flexDirection: 'row',
+        alignItems: 'center',
+        
+        
     },
 
     inputText: {

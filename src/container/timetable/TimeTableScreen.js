@@ -12,16 +12,15 @@ export default TimeTableScreen = () => {
                 <Header
                     textStyle={styles.text}
                     text1="Thời khóa biểu"
-                    text2="Lịch"                    
+                    text2="Lịch"
                     iconName="calendar-alt"
-                    iconBack="chevron-left"
                 />
             </View>
             <ScrollView style={styles.main}>
                 <View>
                     <Text style={styles.textMain}></Text>
                 </View>
-                <TimeTable 
+                <TimeTable
                     timeDay="Thứ 2"
                 />
             </ScrollView>
@@ -58,7 +57,7 @@ const styles = StyleSheet.create({
         fontFamily: fonts.primary.primary,
         fontWeight: "bold",
         fontSize: 16,
-        
+
     },
 
     textMain: {
@@ -73,6 +72,6 @@ const styles = StyleSheet.create({
     footer: {
         backgroundColor: colors.primary.colorbutton,
     },
-    
+
 });
 
