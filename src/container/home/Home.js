@@ -182,7 +182,7 @@ export default Home = () => {
             </ScrollView>
 
             {/* test */}
-            <View style={styles.header}>
+            {/* <View style={styles.header}>
                 <Text>User: {info.user}</Text>
                 <Text>Password: {info.password}</Text>
                 <Text>Address: {info.address}</Text>
@@ -199,7 +199,7 @@ export default Home = () => {
                         <Text>Submit</Text>
                     </TouchableOpacity>
 
-            </View>
+            </View> */}
         </SafeAreaView>
 
 

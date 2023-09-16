@@ -6,17 +6,6 @@ import fonts from "../../theme/fonts";
 
 import TableClass from "../../component/TableClass";
 
-const data = [
-    {
-        title: 'Lớp mầm',       
-    },
-    {
-        title: 'Lớp chồi',        
-    },
-    {
-        title: 'Lớp lá',    
-    }
-]
 
 
 export default ClassScreen = ({ route }) => {

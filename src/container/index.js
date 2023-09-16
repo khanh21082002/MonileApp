@@ -18,6 +18,8 @@ import { store } from "../redux/store";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import colors from "../theme/color";
+import DetailInfoScreen from "./class/DetailInfoScreen";
+import TableClass from "../component/TableClass";
 const Tab = createBottomTabNavigator();
 
 const Stack = createNativeStackNavigator();
@@ -73,8 +75,12 @@ const RootComponent = () => (
                 <Stack.Screen name="Class" component={ClassScreen} />
                 <Stack.Screen name="Meal" component={MealScreen} />
                 <Stack.Screen name="TimeTable" component={TimeTableScreen} />
+                <Stack.Screen name="DetailStudent" component={DetailInfoScreen}/>
+                
             </Stack.Navigator>
         </NavigationContainer>
+
+        
     </Provider>
 );
 
