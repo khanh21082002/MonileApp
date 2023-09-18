@@ -20,6 +20,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import colors from "../theme/color";
 import DetailInfoScreen from "./class/DetailInfoScreen";
 import TableClass from "../component/TableClass";
+import Calendar from "../component/Calendar";
 const Tab = createBottomTabNavigator();
 
 const Stack = createNativeStackNavigator();
@@ -69,14 +70,14 @@ const RootComponent = () => (
             <Stack.Navigator initialRouteName="Start" screenOptions={{ headerShown: false }}>
                 <Stack.Screen name="Start" component={StartScreen} />
                 <Stack.Screen name="Login" component={LoginScreen} />
-                <Stack.Screen name="Home" component={TabNavigator} />
+                <Stack.Screen name="Main" component={TabNavigator} />
                 <Stack.Screen name="Account" component={AccountScreen} />
                 <Stack.Screen name="Notification" component={NotificationScreen} />
                 <Stack.Screen name="Class" component={ClassScreen} />
                 <Stack.Screen name="Meal" component={MealScreen} />
                 <Stack.Screen name="TimeTable" component={TimeTableScreen} />
                 <Stack.Screen name="DetailStudent" component={DetailInfoScreen}/>
-                
+                <Stack.Screen name="Calendar" component={Calendar}/>
             </Stack.Navigator>
         </NavigationContainer>
 

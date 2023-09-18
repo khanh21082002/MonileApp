@@ -1,26 +1,54 @@
-import React, { useEffect , useState } from "react";
-import { Image, ScrollView, StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Image, ScrollView, StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View, BackHandler, Alert } from "react-native";
 import { SafeAreaView } from "react-native";
 import Header from "../../component/Header";
 import colors from "../../theme/color";
 import fonts from "../../theme/fonts";
 import MainHome from "../../component/MainHome";
 
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { updateUser } from "../../redux/actions/updateAction";
+import {  useIsFocused } from "@react-navigation/native"
 
 
 export default Home = () => {
     const localImage = require('AwesomeProject/image/class.png');
 
-    
+
     const info = useSelector((state) => state.personalInfor)
-    const [text,onchangeText] = React.useState("");
+    const [text, onchangeText] = React.useState("");
     const dispatch = useDispatch()
 
+    const isFocused = useIsFocused();
+
+
     useEffect(() => {
-        console.log("Info: ",info)
+        console.log("Info: ", info)
     })
+
+    useEffect(() => {
+        const backAction = () => {
+            if (isFocused){
+                Alert.alert('Thông báo!', 'Bạn có muốn thoát khỏi ứng dụng?', [
+                    {
+                        text: 'Cancel',
+                        onPress: () => null,
+                        style: 'cancel',
+                    },
+                    { text: 'YES', onPress: () => BackHandler.exitApp() },
+                ]);
+            return true;
+            }
+            return false;
+        };
+
+        const backHandler = BackHandler.addEventListener(
+            'hardwareBackPress',
+            backAction,
+        );
+
+        return () => backHandler.remove();
+    }, [isFocused]);
 
     return (
         <SafeAreaView style={styles.container}>
@@ -30,7 +58,7 @@ export default Home = () => {
                     text1="Trang chủ"
                     text2="Thông báo"
                     iconName="bell"
-                    
+
                 />
             </View>
 
@@ -46,28 +74,28 @@ export default Home = () => {
                             textList: "Lớp Mầm",
                             styleList: styles.textList,
                             styleImg: styles.styleImg,
-                            link : "Class"
+                            link: "Class"
                         },
                         {
                             image: localImage,
                             textList: "Lớp Chồi",
                             styleList: styles.textList,
                             styleImg: styles.styleImg,
-                            link : "Class"
+                            link: "Class"
                         },
                         {
                             image: localImage,
                             textList: "Lớp Lá",
                             styleList: styles.textList,
                             styleImg: styles.styleImg,
-                            link : "Class"
+                            link: "Class"
                         },
                         {
                             image: localImage,
                             textList: "Lớp 5 tuổi",
                             styleList: styles.textList,
                             styleImg: styles.styleImg,
-                            link : "Class"
+                            link: "Class"
                         },
 
                     ]}
@@ -125,7 +153,7 @@ export default Home = () => {
                             textList: "Lớp Mầm",
                             styleList: styles.textList,
                             styleImg: styles.styleImg,
-                            link:"Notification"
+                            link: "Notification"
                         },
                         {
                             image: localImage,

@@ -17,15 +17,15 @@ export default AccountScreen = ({navigation}) => {
                     textStyle={styles.text}
                     text1="Tài khoản"
                     text2="Thông báo"
-                    iconName="bell"
+                    
                 />
             </View>
             <View style={styles.main}>
                 <Image source={require("AwesomeProject/image/avatar.jpg")} style={styles.image} />
                 <View >
-                    <Text style={styles.textLine}>Tên đăng nhập:{info.user} </Text>
-                    <Text style={styles.textLine}>Địa chỉ:{info.address} </Text>
-                    <Text style={styles.textLine}>Phụ huynh của: {info.student} </Text>
+                    <Text style={styles.textLine}>Tên đăng nhập: </Text>
+                    <Text style={styles.textLine}>Địa chỉ: </Text>
+                    <Text style={styles.textLine}>Phụ huynh của: </Text>
 
                 </View>
                 <TouchableOpacity

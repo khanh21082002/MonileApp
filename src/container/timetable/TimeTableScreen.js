@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useState} from "react";
 import { StyleSheet, View, Text, SafeAreaView, ScrollView } from "react-native";
 import Header from "../../component/Header";
 import colors from "../../theme/color";
@@ -6,6 +6,9 @@ import fonts from "../../theme/fonts";
 import TimeTable from "../../component/TimeTable";
 
 export default TimeTableScreen = () => {
+
+    const [selectedDay, setSelectedDay] = useState('');
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>

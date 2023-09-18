@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Text, SafeAreaView, ScrollView, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, SafeAreaView, ScrollView, TouchableOpacity, TextInput } from "react-native";
 import Header from "../../component/Header";
 import colors from "../../theme/color";
 import fonts from "../../theme/fonts";
 import Icons from 'react-native-vector-icons/EvilIcons';
 
-import {useDispatch, useSelector} from 'react-redux'
-import { updateStudent } from "../../redux/actions/updateStudent"; 
+import { useDispatch, useSelector } from 'react-redux'
+import { selectedStudent, updateStudent } from "../../redux/actions/updateStudent";
 
 
 
@@ -16,10 +16,15 @@ export default DetailInfoScreen = ({ route }) => {
     const { title } = route.params
 
     const [note, setNoteText] = useState(title);
+    const [name, onchangename] = React.useState(student[1]);
+    const [gender, onchangegender] = React.useState(student[2]);
+    const [dob, onchangedob] = React.useState(student[3]);
+    const [parent, onchangeparent] = React.useState(student[4]);
+    const [comment, onchangecomment] = React.useState(student[5]);
 
     const dispatch = useDispatch()
-    const infoS = useSelector((state) => state.infoStudent)
-
+    const infoS = useSelector((state) => state.studentInfor)
+   
     useEffect(() => {
         setNoteText(title);
     }, [title])
@@ -57,22 +62,70 @@ export default DetailInfoScreen = ({ route }) => {
 
 
             <View style={styles.header}>
-                <Text>Stt: {infoS.stt}</Text>
-                <Text>Họ và tên: {infoS.name}</Text>
-                <Text>Giới tính: {infoS.gender}</Text>
-                <Text>Ngày sinh: {infoS.dob}</Text>
-                <Text>Tên phụ huynh: {infoS.parent}</Text>
-                <Text>Nhận xét giáo viên: {infoS.comment}</Text>
-                    <TextInput 
-                        style={{height:40 , width:100 , borderWidth:1}}
-                        onChangeText={onchangeText}
-                        value={text}
+                <View>
+                    <Text>Stt: {infoS.stt} </Text>
+                    <TextInput
+                        style={{ height: 40, width: 100, borderWidth: 1 }}
+                        placeholder={student[0]}
+
                     />
-                    <TouchableOpacity 
-                        onPress={() => dispatch(updateStudent(text))}
-                    >
-                        <Text>Submit</Text>
-                    </TouchableOpacity>
+                </View>
+                <View>
+                    <Text>Họ và tên: {infoS.name}</Text>
+                    <TextInput
+                        style={{ height: 40, width: 100, borderWidth: 1 }}
+                        onChangeText={onchangename}
+                        value={name}
+                    />
+                </View>
+
+                <View>
+                    <Text>Giới tính: {infoS.gender}</Text>
+                    <TextInput
+                        style={{ height: 40, width: 100, borderWidth: 1 }}
+                        onChangeText={onchangegender}
+                        value={gender}
+                    />
+                </View>
+
+                <View>
+                    <Text>Ngày sinh: {infoS.dob}</Text>
+                    <TextInput
+                        style={{ height: 40, width: 100, borderWidth: 1 }}
+                        onChangeText={onchangedob}
+                        value={dob}
+                    />
+                </View>
+
+                <View>
+                    <Text>Tên phụ huynh: {infoS.parent}</Text>
+                    <TextInput
+                        style={{ height: 40, width: 100, borderWidth: 1 }}
+                        onChangeText={onchangeparent}
+                        value={parent}
+                    />
+                </View>
+                <View>
+                    <Text>Nhận xét giáo viên: {infoS.comment}</Text>
+                    <TextInput
+                        style={{ height: 40, width: 100, borderWidth: 1 }}
+                        value={comment}
+                    />
+                </View>
+
+                <TouchableOpacity
+                    onPress={() => dispatch(updateStudent({
+                        stt: infoS.stt,
+                        name: name,
+                        gender: gender,
+                        dob: dob,
+                        parent: parent,
+                        comment: comment,
+
+                    }))}
+                >
+                    <Text>Submit</Text>
+                </TouchableOpacity>
 
             </View>
 
