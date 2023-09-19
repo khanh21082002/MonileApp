@@ -21,6 +21,8 @@ import colors from "../theme/color";
 import DetailInfoScreen from "./class/DetailInfoScreen";
 import TableClass from "../component/TableClass";
 import Calendar from "../component/Calendar";
+import UpdateScreen from "./account/UpdateScreen";
+import YouTubeScreen from "./media/YouTubeScreen";
 const Tab = createBottomTabNavigator();
 
 const Stack = createNativeStackNavigator();
@@ -77,11 +79,12 @@ const RootComponent = () => (
                 <Stack.Screen name="Meal" component={MealScreen} />
                 <Stack.Screen name="TimeTable" component={TimeTableScreen} />
                 <Stack.Screen name="DetailStudent" component={DetailInfoScreen}/>
-                <Stack.Screen name="Calendar" component={Calendar}/>
+                <Stack.Screen name="UpdateAccount" component={UpdateScreen}/>
+                <Stack.Screen name="Youtube" component={YouTubeScreen}/>
             </Stack.Navigator>
         </NavigationContainer>
-
         
+       
     </Provider>
 );
 

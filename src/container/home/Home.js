@@ -177,14 +177,15 @@ export default Home = () => {
                     ]}
                 />
                 <MainHome
-                    text="ABC"
+                    text="Media"
                     textStyle={styles.textFlag}
                     flags={[
                         {
                             image: localImage,
-                            textList: "Lớp Mầm",
+                            textList: "Youtube",
                             styleList: styles.textList,
                             styleImg: styles.styleImg,
+                            link: "Youtube"
                         },
                         {
                             image: localImage,

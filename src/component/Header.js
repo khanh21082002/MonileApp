@@ -31,6 +31,8 @@ function Header(props) {
   let conditionalIcon = null;
   let conditionalHandle = null;
   let conditionalText2 = null;
+  let conditionalText = null;
+
 
   if (text1 === 'Thời khóa biểu') {
     conditionalIcon = (
@@ -54,15 +56,20 @@ function Header(props) {
       <Icon name="calendar-alt" size={25} color="white" style={{ marginRight: 10 }} />
     </TouchableOpacity>
   ) : (
-    <Icon name={iconName} size={25} color="white" style={{ marginLeft: 10 }} />
+    <Icons name={iconName} size={25} color="white" style={{ marginLeft: 10 }} />
   );
 
-    conditionalText2 = text1 ==='Tài khoản' ? (
-      <TouchableOpacity>
+    conditionalText2 = text1 ==='Tài khoản' || text1 === 'Thông tin chi tiết' ? (
+      <TouchableOpacity onPress={() => navigation.navigate('UpdateAccount')}>
           <HeaderText text='Chỉnh sửa thông tin' style={textStyle} />
       </TouchableOpacity>
     ):(<HeaderText text={text2} style={textStyle} />);
 
+    conditionalText = text1 === 'Thông tin chi tiết' ? (
+      <TouchableOpacity onPress={() => navigation.navigate('UpdateAccount')}>
+          <HeaderText text='Chỉnh sửa thông tin' style={textStyle} />
+      </TouchableOpacity>
+    ):(<HeaderText text={text2} style={textStyle} />);
 
   return (
     <View style={[{ flexDirection: 'row', justifyContent: 'space-between', margin: 20, height: 30 }]}>

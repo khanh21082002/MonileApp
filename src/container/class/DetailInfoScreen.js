@@ -36,7 +36,7 @@ export default DetailInfoScreen = ({ route }) => {
                     text1="Thông tin chi tiết"
                     text2="Thông báo"
                     note={note}
-                    iconName="bell"
+                    
                 />
             </View>
             <ScrollView style={styles.main}>
@@ -61,7 +61,7 @@ export default DetailInfoScreen = ({ route }) => {
             </ScrollView>
 
 
-            <View style={styles.header}>
+            {/* <View style={styles.header}>
                 <View>
                     <Text>Stt: {infoS.stt} </Text>
                     <TextInput
@@ -127,7 +127,7 @@ export default DetailInfoScreen = ({ route }) => {
                     <Text>Submit</Text>
                 </TouchableOpacity>
 
-            </View>
+            </View> */}
 
             {/* <View style={styles.footer}>
                 {/* <Footer
