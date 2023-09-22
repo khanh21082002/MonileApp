@@ -1,15 +1,24 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import colors from '../../theme/color';
-import { Image, StyleSheet, Text, View, TouchableOpacity, Alert, SafeAreaView, TextInput } from 'react-native'
+import { Image, StyleSheet, Text, View, TouchableOpacity, Alert, SafeAreaView, TextInput, ActivityIndicator } from 'react-native'
 import CustomTextInput from "../../component/CustomTextInput";
 
 
 
-export default LoginScreen = ({navigation}) => {
+export default LoginScreen = ({ navigation }) => {
     // const [text, onChangeText] = React.useState('');
 
     const [text, onChangeText] = React.useState('');
     const [pass, onChangePass] = React.useState('');
+    const [loading, setLoading] = React.useState(false);
+
+    const handleLogin = () => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+            navigation.navigate('Main');
+        }, 2000);
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -27,7 +36,7 @@ export default LoginScreen = ({navigation}) => {
                 <View style={styles.container}>
                     <Image source={require('AwesomeProject/image/undraw_Login_re_4vu2.png')}
                         style={styles.image}
-                    />                    
+                    />
 
                     <CustomTextInput
                         containerStyle={styles.containerStyle}
@@ -45,16 +54,25 @@ export default LoginScreen = ({navigation}) => {
                         value={pass}
                         onChangeText={onChangePass}
                         placeholder="Mật khẩu"
-                        isPassword={true}                      
+                        isPassword={true}
                     />
 
                     <TouchableOpacity
                         style={styles.button}
-                        onPress={() => navigation.navigate('Main')}
+                        onPress={() => handleLogin()}
                     >
                         <Text style={styles.buttonText} >Đăng Nhập</Text>
-                        
+
                     </TouchableOpacity>
+                    {loading && (
+                        <ActivityIndicator
+                            size="large"
+                            color={colors.primary.colorbutton}
+                            style={{ marginTop: 20 }}
+                        />
+
+
+                    )}
                     <Image
                         source={require('AwesomeProject/image/undraw_true_friends_c94g.png')}
                         style={styles.footer}
@@ -122,14 +140,14 @@ const styles = StyleSheet.create({
     },
 
     input: {
-               
+
         width: 250,
         height: 40,
         backgroundColor: colors.primary.background,
         flexDirection: 'row',
         alignItems: 'center',
-        
-        
+
+
     },
 
     inputText: {
